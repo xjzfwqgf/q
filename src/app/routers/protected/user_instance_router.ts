@@ -365,7 +365,8 @@ router.put(
       const pingConfig = {
         ip: toText(config.pingConfig?.ip),
         port: toNumber(config.pingConfig?.port),
-        type: config.pingConfig?.type
+        type: config.pingConfig?.type,
+        password: toText(config.pingConfig?.password)
       };
 
       // event task configuration
@@ -427,7 +428,8 @@ router.get(
         instanceUuid
       });
       if (ctx.query.size) {
-        let size, sizeStr = ctx.query.size;
+        let size,
+          sizeStr = ctx.query.size;
         if (sizeStr instanceof Array) {
           sizeStr = sizeStr[0];
         }
